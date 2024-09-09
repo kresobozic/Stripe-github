@@ -1,0 +1,24 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "homepage": "https://frontend.database.hr",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@stripe/react-stripe-js": "^1.16.5",
+    "@stripe/stripe-js": "^1.54.2",
+    "@vitejs/plugin-react": "^4.3.1",
+    "dotenv": "^16.4.5",
+    "node": "^20.12.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.26.1"
+  },
+  "devDependencies": {
+    "vite": "^4.0.0"
+  }
+}

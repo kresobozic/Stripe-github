@@ -1,0 +1,61 @@
+.subscription-form {
+  max-width: 400px;
+  margin: 40px auto; /* Dodana gornja margina za spuštanje forme */
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.subscription-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.subscription-form label {
+  display: block;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.subscription-form label:hover {
+  background-color: #f9f9f9;
+}
+
+.subscription-form input[type="radio"] {
+  margin-right: 10px;
+}
+
+.subscription-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscription-form button:hover {
+  background-color: #0056b3;
+}
+
+.subscription-form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.subscription-form .error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+}
