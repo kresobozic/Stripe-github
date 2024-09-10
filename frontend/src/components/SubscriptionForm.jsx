@@ -6,7 +6,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 const SubscriptionForm = () => {
   const [selectedAmount, setSelectedAmount] = useState(null);
-  const [selectedFeeType, setSelectedFeeType] = useState(""); // New state for fee type
+  const [selectedFeeType, setSelectedFeeType] = useState("");
   const [error, setError] = useState(null);
 
   const handleAmountChange = (event) => {

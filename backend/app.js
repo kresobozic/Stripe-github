@@ -1,15 +1,20 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const app = express();
+
+console.log(process.env.STRIPE_SECRET_KEY);
 
 // Enable CORS for the frontend URL
 app.use(
   cors({
     origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
   })
 );
+// app.use(cors());
 
 app.use(express.json());
 
@@ -21,6 +26,8 @@ app.post("/create-checkout-session", async (req, res) => {
   console.log("Request body:", req.body);
 
   const amount = parseInt(req.body.amount, 10);
+  const feeType = req.body.feeType;
+
   if (isNaN(amount)) {
     console.error("Invalid amount received:", req.body.amount);
     return res.status(400).send({ error: "Amount must be a number" });
@@ -34,7 +41,8 @@ app.post("/create-checkout-session", async (req, res) => {
           price_data: {
             currency: "eur",
             product_data: {
-              name: `Service Fee of ${amount / 100} Euros`,
+              name: `Fee Type: ${feeType}`,
+              description: feeType,
             },
             unit_amount: amount,
           },
@@ -46,7 +54,7 @@ app.post("/create-checkout-session", async (req, res) => {
       cancel_url: `${process.env.FRONTEND_URL}/cancel`,
       billing_address_collection: "required", // Zahtijeva adresu za naplatu
       phone_number_collection: {
-        enabled: true, // Omogućuje unos telefonskog broja
+        enabled: true,
       },
     });
 
